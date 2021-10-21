@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user1" class="com.fengx.spring_01.User"/>
+
+    <!--根据类型查到单个 bean 时，如果存在多个同类型的 bean，需要给 bean 设置 primary 属性-->
+    <bean id="user2" class="com.fengx.spring_01.User" primary="true">
+        <property name="id" value="2" />
+        <property name="name" value="user2" />
+    </bean>
+
+    <bean id="lazyUser" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <property name="targetBeanName" value="user1"/>
+    </bean>
+
+</beans>

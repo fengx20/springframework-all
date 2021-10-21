@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="wife" class="com.fengx.spring_02.datatype.User">
+		<!--基本数据类型-->
+		<property name="id" value="2"/>
+		<!--字符串-->
+		<property name="name" value="wife"/>
+	</bean>
+
+	<bean id="fengx_1" class="com.fengx.spring_02.datatype.User">
+		<!--基本数据类型-->
+		<property name="id" value="1"/>
+		<!--字符串-->
+		<property name="name" value="Fengx"/>
+		<!--对象，ref id 引用 bean 类-->
+		<property name="wife" ref="wife"/>
+		<!--数组-->
+		<property name="friends">
+			<list>
+				<ref bean="wife"/>
+			</list>
+		</property>
+		<!--list，ref id 引用 bean 类-->
+		<property name="schoolmates">
+			<list>
+				<ref bean="wife"/>
+			</list>
+		</property>
+		<!--set-->
+		<property name="favorites">
+			<set>
+				<value>写代码</value>
+				<value>睡觉</value>
+		    </set>
+		</property>
+		<!--map-->
+		<property name="emails">
+			<map>
+				<entry key="公司" value="123@123.com"/>
+				<entry key="个人" value="123@abc.com"/>
+		    </map>
+		</property>
+	</bean>
+	
+	<bean id="specialUser" class="com.fengx.spring_02.datatype.SpecialUser">
+		<property name="environment" ref="environment"/>
+	</bean>
+
+</beans>
